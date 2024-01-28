@@ -49,8 +49,8 @@ public class TweetService {
             return Optional.empty();
         }
 
-        List<TweetModel> allTweets = tweetRepository.findByUserId(id);
-        return Optional.of(allTweets);
+        List<TweetModel> userTweets = tweetRepository.findByUserId(id);
+        return Optional.of(userTweets);
     }
 
 }

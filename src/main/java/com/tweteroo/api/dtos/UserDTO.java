@@ -8,7 +8,7 @@ import lombok.Data;
 public class UserDTO {
 
     @NotBlank(message = "You must insert an username")
-    @Size(max = 100)
+    @Size(max = 100, message = "Username must have less than 100 characters")
     private String username;
 
     @NotBlank(message = "You must insert an avatar Url")

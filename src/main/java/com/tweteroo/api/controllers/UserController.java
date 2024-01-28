@@ -22,15 +22,15 @@ public class UserController {
     final UserService userService;
 
     UserController(UserService userService) {
-        this.userService =userService;
+        this.userService = userService;
     }
-    
+
     @PostMapping
     public ResponseEntity<Object> postUser(@RequestBody @Valid UserDTO body) {
-        Optional<UserModel> user =  userService.postUser(body);
+        Optional<UserModel> user = userService.postUser(body);
 
         if (!user.isPresent()) {
-             return ResponseEntity.status(HttpStatus.CONFLICT).body("Username already taken");
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("Username already taken");
         }
 
         return ResponseEntity.status(HttpStatus.CREATED).body(user);
